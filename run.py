@@ -41,8 +41,8 @@ def done(chosen_images, images, name):
 images = ["./Images/" + img_string for img_string in os.listdir("./Images") ]
 
 
-st.markdown("<h1 style='text-align: center; color: black;'>Baby Photo Matching!</h1>", unsafe_allow_html=True)
-st.markdown("<p style='text-align: center; color: black;'>Match each baby photo with the correct person</p>", unsafe_allow_html=True)
+st.header("Baby Photo Matching")
+st.write("Match the baby photo with the person!")
 
 name = st.text_input(label = "Name:")
 
