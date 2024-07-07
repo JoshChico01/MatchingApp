@@ -61,7 +61,7 @@ for img in images:
     with right_col:
         
         # chosen_img = stis.image_select(label="",images=images, key = img)
-        st.selectbox(label  = "Select: ", options = os.listdir("./Images") )
+        chosen_img = st.selectbox(label  = "Select: ", options = os.listdir("./Images") )
         chosen_images.append(chosen_img)
 
     st.markdown("""---""")
