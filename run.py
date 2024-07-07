@@ -17,7 +17,7 @@ def done(chosen_images, images, name):
 
     score = 0
 
-    for img, target in zip(chosen_images, images):
+    for img, target in zip(chosen_images, [i.split("/")[2] for i in images]):
         if img == target:
             score += 1
 
