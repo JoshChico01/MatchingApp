@@ -20,7 +20,7 @@ bucket = s3.Bucket("photomatchingapp")
 for my_bucket_object in bucket.objects.all():
     file_name = my_bucket_object.key
 
-    response = s3.get_object(Bucket="photomatchingapp", Key=file_name)
+    response = bucket.get_object(file_name)
 
     df = pd.read_csv(response.get("Body"))
 
