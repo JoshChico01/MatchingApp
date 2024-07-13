@@ -18,11 +18,14 @@ s3 = boto3.resource(
 bucket = s3.Bucket("photomatchingapp")
 
 for my_bucket_object in bucket.objects.all():
-    file_name = my_bucket_object.key
+    object = my_bucket_object
 
-    response = s3.Object("photomatchingapp",file_name)
+    df = pd.read_csv(object.get()["Body"])
 
-    df = pd.read_csv(response["Body"])
+
+    #response = s3.Object("photomatchingapp","/"+file_name)
+
+    #df = pd.read_csv(response["Body"])
 
     st.table(df)
     

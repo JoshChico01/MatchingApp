@@ -28,7 +28,7 @@ def done(chosen_images, images, name):
     df = pd.DataFrame(_dict)
     
     csv_buffer = StringIO()
-    df.to_csv(csv_buffer)
+    df.to_csv(csv_buffer, index = False)
 
     s3.Object('photomatchingapp', f'{name}.csv').put(Body=csv_buffer.getvalue())
 
