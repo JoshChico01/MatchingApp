@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 import boto3
 
 
@@ -17,4 +18,11 @@ s3 = boto3.resource(
 bucket = s3.Bucket("photomatchingapp")
 
 for my_bucket_object in bucket.objects.all():
-    st.write(my_bucket_object.key)
+    file_name = my_bucket_object.key
+
+    response = s3.get_object(Bucket="photomatchingapp", Key=file_name)
+
+    df = pd.read_csv(response.get("Body"))
+
+    st.table(df)
+    
