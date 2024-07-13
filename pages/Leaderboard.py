@@ -22,7 +22,7 @@ for my_bucket_object in bucket.objects.all():
 
     response = bucket.load(file_name)
 
-    df = pd.read_csv(response.get("Body"))
+    df = pd.read_csv(response)
 
     st.table(df)
     
