@@ -51,7 +51,6 @@ def getImgs():
 
     return images
 
-@st.cache_data
 def getScore(guesses, images):
     score = 0
     total = 0
