@@ -121,5 +121,5 @@ with placeholder.container():
     if not st.session_state.password:
         st.header("Baby Photo Matcher!")
         st.write("Enter the password to get starter")
-        password = st.text_input()
+        password = st.text_input(label = "Password:")
         st.button("Go", on_click=try_pass, args=(password))
