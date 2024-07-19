@@ -2,6 +2,7 @@ import streamlit as st
 import os
 import boto3
 import pandas as pd
+import random
 from io import StringIO
 
 def done(chosen_images, images, name):
@@ -38,10 +39,14 @@ images = ["./Images/" + img_string for img_string in os.listdir("./Images") ]
 st.header("Baby Photo Matching")
 st.write("Match the baby photo with the person!")
 
-name = st.text_input(label = "Name:")
+players = ["Sarah", "Shavani", "Yvonne", "Titia","Tester", "Pina", "Zoe", "Angela", "Amy I", "Tiff", "Courtney", "Megan", "Jess", "Renae", "Amie H", "Britt", "Jenny", "Gabs"]
+
+name = st.selectbox(label  = "Enter your name: ", options = players, key = "name" )
+#name = st.text_input(label = "Enter your name:")
 
 chosen_images = []
 
+images = random.shuffle(images)
 
 for img in images:
 
@@ -49,7 +54,7 @@ for img in images:
     left_col.image(img)
     
     with right_col:        
-        chosen_img = st.selectbox(label  = "Select: ", options = [img_file.split(".")[-2] for img_file in os.listdir("./Images")], key = img )
+        chosen_img = st.selectbox(label  = "Select: ", options = random.shuffle([img_file.split(".")[-2] for img_file in os.listdir("./Images")]), key = img )
         chosen_images.append(chosen_img)
 
     st.markdown("""---""")
