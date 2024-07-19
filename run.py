@@ -32,7 +32,7 @@ def done(chosen_images, images, name):
     s3.Object('photomatchingapp', f'{name}.csv').put(Body=csv_buffer.getvalue())
 
 
-images = ["./Images/" + img_string for img_string in os.listdir("./Images") ]
+images = [img_string.split(".")[-2] for img_string in os.listdir("./Images") ]
 
 
 st.header("Baby Photo Matching")
@@ -49,7 +49,7 @@ for img in images:
     left_col.image(img)
     
     with right_col:        
-        chosen_img = st.selectbox(label  = "Select: ", options = os.listdir("./Images"), key = img )
+        chosen_img = st.selectbox(label  = "Select: ", options = [img_file.split(".")[-2] for img_file in os.listdir("./Images")], key = img )
         chosen_images.append(chosen_img)
 
     st.markdown("""---""")
