@@ -112,10 +112,14 @@ with placeholder.container():
     if st.session_state.done:
 
         bundle = st.session_state.bundle
-        st.header("Good Job!")
+
+        messages = ["Hmmm.. good try..."] * 2 + ["You just guessed didn't you.."] * 2 + ["Well, you tried"] * 2+ ["Not a bad effort"] * 2 + ["Over 50%? That's a pass!"] * 3 + ["Good job!"] * 3 + ["Wow! So close to perfect!"] *2 + ["Perfect! Great job!"]
+
         if bundle:
+            st.header(messages[bundle[0]])
             st.write(f"You scored {bundle[0]}/{bundle[1]}")
         else:
+            st.header("Good job!")
             st.write("Score is not available.")
 
     if not st.session_state.password:
