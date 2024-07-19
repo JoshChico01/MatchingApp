@@ -30,7 +30,7 @@ for my_bucket_object in bucket.objects.all():
         if col == df[col][0]:
             score += 1
     
-    name = str(object_.key).split(",")[0]
+    name = str(object_.key).split(".")[0]
 
     names.append(name)
     scores.append(score)
@@ -45,5 +45,7 @@ df = pd.DataFrame({
     "Score" : [score]
 })
 
-st.table(df.set_index("Name"))
+df.index = df.index + 1
+
+st.table(df)
     
