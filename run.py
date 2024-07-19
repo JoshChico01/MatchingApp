@@ -56,6 +56,13 @@ def getScore(guesses, images):
 
     return [score, total]
 
+def try_pass(password):
+    if password = "baby":
+        st.session_state.password = True
+
+if "password" not in st.session_state:
+    st.session_state.password = False
+
 if "done" not in st.session_state:
     st.session_state.done = False
 
@@ -70,7 +77,7 @@ images = getImgs()
 
 bundle = None
 with placeholder.container():
-    if not st.session_state.done:
+    if (not st.session_state.done) and st.session_state.password:
         st.header("Baby Photo Matching")
         st.write("Match the baby photo with the person!")
 
@@ -110,3 +117,9 @@ with placeholder.container():
             st.write(f"You scored {bundle[0]}/{bundle[1]}")
         else:
             st.write("Score is not available.")
+
+    if not st.session_state.password:
+        st.header("Baby Photo Matcher!")
+        st.write("Enter the password to get starter")
+        password = st.text_input()
+        st.button("Go", on_click=try_pass args=(password))
