@@ -45,8 +45,8 @@ for my_bucket_object in bucket.objects.all():
 
 
 df = pd.DataFrame({
-    "Name" = name,
-    "Score" = score
+    "Name" : name,
+    "Score" : score
 })
 
 st.table(df)
