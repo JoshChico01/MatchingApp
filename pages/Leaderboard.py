@@ -29,9 +29,7 @@ for my_bucket_object in bucket.objects.all():
     for col in df:
         if col == df[col][0]:
             score += 1
-        
-    dfs.append(df)
-
+    
     name = str(object_.key).split(",")[0]
 
     names.append(name)
