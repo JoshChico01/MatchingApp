@@ -5,6 +5,11 @@ import pandas as pd
 import random
 from io import StringIO
 
+st.set_page_config(
+    page_title="Quiz!",
+    page_icon="👋",
+)
+
 def done(chosen_images, images, name, placeholder):
     st.session_state.done = True
 
@@ -46,6 +51,17 @@ def getImgs():
 
     return images
 
+@st.cache_data
+def getScore(guesses, images):
+    score = 0
+    total = 0
+    for g, i in zip(guesses, images):
+        if g == i:
+            score += 1
+        total += 1
+
+    return score, total
+
 if "done" not in st.session_state:
     st.session_state.done = False
 
@@ -84,13 +100,11 @@ with placeholder.container():
 
         st.button("Done ✓", on_click=done, args=(chosen_images, images, name, placeholder))
 
+        score, total = getScore(chosen_images, images)
+
     else:
         st.header("Good Job!")
-        score = 0
-        total = 0
-        for t, g in zip(chosen_images, images):
-            if t == g:
-                score +=1
-            total += 1
-
         st.write(f"You scored {score}/{total}")
+        #st.write("Open the scoreboard with the bottom in the top right...")
+    
+
