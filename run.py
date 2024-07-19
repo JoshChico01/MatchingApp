@@ -36,8 +36,6 @@ def done(chosen_images, images, name, placeholder):
 
     placeholder.empty()
 
-    with placeholder.container():
-        st.header("Good Job!")
     
 
 @st.cache_data
@@ -85,3 +83,14 @@ with placeholder.container():
         images = [img.split(".")[-2] for img in images]
 
         st.button("Done ✓", on_click=done, args=(chosen_images, images, name, placeholder))
+
+    else:
+        st.header("Good Job!")
+        score = 0
+        total = 0
+        for t, g in zip(chosen_images, images):
+            if t == g:
+                score +=1
+            total += 1
+
+        st.write(f"You scored {score}/{total}")
