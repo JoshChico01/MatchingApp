@@ -60,7 +60,7 @@ def getScore(guesses, images):
             score += 1
         total += 1
 
-    return score, total
+    return [score, total]
 
 if "done" not in st.session_state:
     st.session_state.done = False
@@ -98,14 +98,14 @@ with placeholder.container():
 
         images = [img.split(".")[-2] for img in images]
 
-        score, total = getScore(chosen_images, images)
+        bundle = getScore(chosen_images, images)
 
         st.button("Done ✓", on_click=done, args=(chosen_images, images, name, placeholder))
 
 
     else:
         st.header("Good Job!")
-        st.write(f"You scored {score}/{total}")
+        st.write(f"You scored {bundle[0]}/{bundle[1]}")
         #st.write("Open the scoreboard with the bottom in the top right...")
     
 
