@@ -81,7 +81,7 @@ with placeholder.container():
         st.header("Baby Photo Matching")
         st.write("Match the baby photo with the person!")
 
-        players = ["Sarah", "Shavani", "Yvonne", "Titia","Tester", "Pina", "Zoe", "Angela", "Amy I", "Tiff", "Courtney", "Megan", "Jess", "Renae", "Amie H", "Britt", "Jenny", "Gabs"]
+        players = ["Sarah", "Shavani", "Yvonne", "Titia", "Pina", "Zoe", "Angela", "Amy I", "Tiff", "Courtney", "Megan", "Jess", "Renae", "Amie H", "Britt", "Jenny", "Gabs"]
 
         name = st.selectbox(label  = "Enter your name: ", options = players, key = "name" )
         #name = st.text_input(label = "Enter your name:")
