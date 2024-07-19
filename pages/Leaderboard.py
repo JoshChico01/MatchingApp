@@ -33,11 +33,12 @@ for my_bucket_object in bucket.objects.all():
 
     print(dir(object_))
 
+    st.table(df)
 
     #response = s3.Object("photomatchingapp","/"+file_name)
 
     #df = pd.read_csv(response["Body"])
 
 
-st.table(leaderboard_df)
+#
     
