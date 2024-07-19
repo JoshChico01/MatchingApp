@@ -41,8 +41,8 @@ for my_bucket_object in bucket.objects.all():
 
 
 df = pd.DataFrame({
-    "Name" : [name],
-    "Score" : [score]
+    "Name" : name,
+    "Score" : scores
 })
 
 df.index = df.index + 1
