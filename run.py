@@ -40,8 +40,9 @@ def getImgs():
 
     return images
 
-images = getImgs()
+random.seed(10)
 
+images = getImgs()
 st.header("Baby Photo Matching")
 st.write("Match the baby photo with the person!")
 
