@@ -65,6 +65,9 @@ def getScore(guesses, images):
 if "done" not in st.session_state:
     st.session_state.done = False
 
+if "bundle" not in st.session_state:
+    st.session_state.bundle = None
+
 random.seed(10)
 
 placeholder = st.empty()
@@ -101,10 +104,13 @@ with placeholder.container():
         images = [img.split(".")[-2] for img in images]
 
         bundle = getScore(chosen_images, images)
+        st.session_state.bundle = bundle
 
         st.button("Done ✓", on_click=done, args=(chosen_images, images, name, placeholder))
 
-   if st.session_state.done:
+    if st.session_state.done:
+
+        bundle = st.session_state.bundle
         st.header("Good Job!")
         if bundle:
             st.write(f"You scored {bundle[0]}/{bundle[1]}")
