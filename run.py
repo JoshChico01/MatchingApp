@@ -32,9 +32,15 @@ def done(chosen_images, images, name):
 
     s3.Object('photomatchingapp', f'{name}.csv').put(Body=csv_buffer.getvalue())
 
+@st.cache_data
+def getImgs():
 
-images = ["./Images/" + img_string for img_string in os.listdir("./Images") ]
+    images = ["./Images/" + img_string for img_string in os.listdir("./Images") ]
+    random.shuffle(images)
 
+    return images
+
+images = getImgs()
 
 st.header("Baby Photo Matching")
 st.write("Match the baby photo with the person!")
@@ -46,7 +52,6 @@ name = st.selectbox(label  = "Enter your name: ", options = players, key = "name
 
 chosen_images = []
 
-random.shuffle(images)
 
 for img in images:
 
