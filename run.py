@@ -98,9 +98,10 @@ with placeholder.container():
 
         images = [img.split(".")[-2] for img in images]
 
+        score, total = getScore(chosen_images, images)
+
         st.button("Done ✓", on_click=done, args=(chosen_images, images, name, placeholder))
 
-        score, total = getScore(chosen_images, images)
 
     else:
         st.header("Good Job!")
