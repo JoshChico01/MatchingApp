@@ -35,16 +35,14 @@ for my_bucket_object in bucket.objects.all():
     names.append(name)
     scores.append(score)
 
-    st.table(df)
-
     #response = s3.Object("photomatchingapp","/"+file_name)
 
     #df = pd.read_csv(response["Body"])
 
 
 df = pd.DataFrame({
-    "Name" : name,
-    "Score" : score
+    "Name" : [name],
+    "Score" : [score]
 })
 
 st.table(df)
