@@ -113,7 +113,7 @@ with placeholder.container():
 
         bundle = st.session_state.bundle
 
-        messages = ["Hmmm.. good try..."] * 2 + ["You just guessed didn't you.."] * 2 + ["Well, you tried"] * 2+ ["Not a bad effort"] * 2 + ["Over 50%? That's a pass!"] * 3 + ["Good job!"] * 3 + ["Wow! So close to perfect!"] *2 + ["Perfect! Great job!"]
+        messages = ["Hmmm.. good try..."] * 2 + ["You just guessed didn't you.."] * 2 + ["Well, you tried"] * 3+ ["Not a bad effort"] * 2 + ["Over 50%? That's a pass!"] * 3 + ["Good job!"] * 3 + ["Wow! So close to perfect!"] *2 + ["Perfect! Great job!"]
 
         if bundle:
             st.header(messages[bundle[0]])
