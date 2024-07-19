@@ -45,5 +45,5 @@ df = pd.DataFrame({
     "Score" : [score]
 })
 
-st.table(df)
+st.table(df.set_index("Name"))
     
