@@ -20,10 +20,6 @@ def done(chosen_images, images, name, placeholder):
         aws_secret_access_key= st.secrets["AWS_SECRET_ACCESS_KEY"] #os.environ['AWS_SECRET_ACCESS_KEY']
     )
 
-
-
-    score = 0
-
     guess_dict = {}
 
 
@@ -41,9 +37,7 @@ def done(chosen_images, images, name, placeholder):
 
     placeholder.empty()
 
-    
 
-@st.cache_data
 def getImgs():
 
     images = ["./Images/" + img_string for img_string in os.listdir("./Images") ]
@@ -55,10 +49,10 @@ def getScore(guesses, images):
     score = 0
     total = 0
 
-    print(guesses)
-    print(images)
     for g, i in zip(guesses, images):
         
+        os.write(1, f"{g}\n".encode()) 
+        os.write(1, f"{i}\n".encode()) 
         if g == i:
             score += 1
         total += 1
