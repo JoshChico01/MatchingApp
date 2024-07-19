@@ -57,7 +57,7 @@ def getScore(guesses, images):
     return [score, total]
 
 def try_pass(password):
-    if password = "baby":
+    if password == "baby":
         st.session_state.password = True
 
 if "password" not in st.session_state:
