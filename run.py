@@ -85,7 +85,7 @@ with placeholder.container():
 
         name = st.selectbox(label  = "Enter your name: ", options = players, key = "name" )
         #name = st.text_input(label = "Enter your name:")
-
+        st.markdown("""---""")
         chosen_images = []
 
 
