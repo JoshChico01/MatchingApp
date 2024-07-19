@@ -46,7 +46,7 @@ name = st.selectbox(label  = "Enter your name: ", options = players, key = "name
 
 chosen_images = []
 
-images = random.shuffle(images)
+random.shuffle(images)
 
 for img in images:
 
@@ -54,8 +54,8 @@ for img in images:
     left_col.image(img)
     
     with right_col:
-        img_options = random.shuffle([img_file.split(".")[-2] for img_file in os.listdir("./Images")])        
-        chosen_img = st.selectbox(label  = "Select: ", options = img_options, key = img )
+        img_options = [img_file.split(".")[-2] for img_file in os.listdir("./Images")]       
+        chosen_img = st.selectbox(label  = "Select: ", options = random.shuffle(img_options), key = img )
         chosen_images.append(chosen_img)
 
     st.markdown("""---""")
