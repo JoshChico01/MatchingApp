@@ -16,21 +16,21 @@ def done(chosen_images, images, name):
 
     score = 0
 
+    guess_dict = {}
+
+
     for img, target in zip(chosen_images, [i.split("/")[2] for i in images]):
-        if img == target:
-            score += 1
 
-    _dict = {
-        "name" : [name],
-        "score" : [score]
-    }
+        guess_dict[target] = [img]
 
-    df = pd.DataFrame(_dict)
+    df_guesses = pd.DataFrame(guess_dict)
+    
     
     csv_buffer = StringIO()
-    df.to_csv(csv_buffer, index = False)
+    df_guesses.to_csv(csv_buffer, index = False)
 
     s3.Object('photomatchingapp', f'{name}.csv').put(Body=csv_buffer.getvalue())
+
 
 images = ["./Images/" + img_string for img_string in os.listdir("./Images") ]
 

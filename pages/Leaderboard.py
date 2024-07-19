@@ -17,15 +17,27 @@ s3 = boto3.resource(
 
 bucket = s3.Bucket("photomatchingapp")
 
-for my_bucket_object in bucket.objects.all():
-    object = my_bucket_object
+dfs = []
 
-    df = pd.read_csv(object.get()["Body"])
+for my_bucket_object in bucket.objects.all():
+    object_ = my_bucket_object
+
+    df = pd.read_csv(object_.get()["Body"])
+    score = 0
+
+    for col in df:
+        if col == df[col][0]:
+            score += 1
+        
+    dfs.append(df)
+
+    print(dir(object_))
 
 
     #response = s3.Object("photomatchingapp","/"+file_name)
 
     #df = pd.read_csv(response["Body"])
 
-    st.table(df)
+
+st.table(leaderboard_df)
     
