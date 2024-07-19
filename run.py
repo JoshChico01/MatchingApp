@@ -32,7 +32,7 @@ def done(chosen_images, images, name):
     s3.Object('photomatchingapp', f'{name}.csv').put(Body=csv_buffer.getvalue())
 
 
-images = [img_string.split(".")[-2] for img_string in os.listdir("./Images") ]
+images = ["./Images/" + img_string for img_string in os.listdir("./Images") ]
 
 
 st.header("Baby Photo Matching")
@@ -53,5 +53,7 @@ for img in images:
         chosen_images.append(chosen_img)
 
     st.markdown("""---""")
+
+images = [img.split(".")[-2] for img in images]
 
 st.button("Done ✓", on_click=done, args=(chosen_images, images, name))
