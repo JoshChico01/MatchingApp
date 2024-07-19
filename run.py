@@ -50,10 +50,7 @@ def getScore(guesses, images):
     total = 0
 
     for g, i in zip(guesses, images):
-        
-        os.write(1, f"{g}\n".encode()) 
-        os.write(1, f"{i}\n".encode()) 
-        if g == i:
+        if g == i.split("/")[-1]:
             score += 1
         total += 1
 
