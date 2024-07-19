@@ -70,6 +70,8 @@ random.seed(10)
 placeholder = st.empty()
 
 images = getImgs()
+
+bundle = None
 with placeholder.container():
     if not st.session_state.done:
         st.header("Baby Photo Matching")
@@ -102,10 +104,9 @@ with placeholder.container():
 
         st.button("Done ✓", on_click=done, args=(chosen_images, images, name, placeholder))
 
-
-    else:
+   if st.session_state.done:
         st.header("Good Job!")
-        st.write(f"You scored {bundle[0]}/{bundle[1]}")
-        #st.write("Open the scoreboard with the bottom in the top right...")
-    
-
+        if bundle:
+            st.write(f"You scored {bundle[0]}/{bundle[1]}")
+        else:
+            st.write("Score is not available.")
