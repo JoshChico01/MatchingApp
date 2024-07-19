@@ -54,10 +54,11 @@ def getImgs():
 def getScore(guesses, images):
     score = 0
     total = 0
+
+    print(guesses)
+    print(images)
     for g, i in zip(guesses, images):
-        print("\n\n")
-        print(g)
-        print(i)
+        
         if g == i:
             score += 1
         total += 1
