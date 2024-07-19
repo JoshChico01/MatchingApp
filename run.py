@@ -69,7 +69,7 @@ if "done" not in st.session_state:
 if "bundle" not in st.session_state:
     st.session_state.bundle = None
 
-random.seed(10)
+random.seed(11)
 
 placeholder = st.empty()
 
