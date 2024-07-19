@@ -53,8 +53,9 @@ for img in images:
     left_col, divider_col, right_col = st.columns([0.2,0.02,0.78])
     left_col.image(img)
     
-    with right_col:        
-        chosen_img = st.selectbox(label  = "Select: ", options = random.shuffle([img_file.split(".")[-2] for img_file in os.listdir("./Images")]), key = img )
+    with right_col:
+        img_options = random.shuffle([img_file.split(".")[-2] for img_file in os.listdir("./Images")])        
+        chosen_img = st.selectbox(label  = "Select: ", options = img_options, key = img )
         chosen_images.append(chosen_img)
 
     st.markdown("""---""")
