@@ -31,7 +31,7 @@ for my_bucket_object in bucket.objects.all():
         
     dfs.append(df)
 
-    print(dir(object_))
+    st.write(object_.key)
 
     st.table(df)
 
