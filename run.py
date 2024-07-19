@@ -122,4 +122,4 @@ with placeholder.container():
         st.header("Baby Photo Matcher!")
         st.write("Enter the password to get starter")
         password = st.text_input()
-        st.button("Go", on_click=try_pass args=(password))
+        st.button("Go", on_click=try_pass, args=(password))
