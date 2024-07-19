@@ -47,5 +47,5 @@ df = pd.DataFrame({
 
 df.index = df.index + 1
 
-st.table(df)
+st.table(df.sort_values("Score", ascending = False))
     
