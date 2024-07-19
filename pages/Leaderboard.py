@@ -17,7 +17,8 @@ s3 = boto3.resource(
 
 bucket = s3.Bucket("photomatchingapp")
 
-dfs = []
+names = []
+scores = []
 
 for my_bucket_object in bucket.objects.all():
     object_ = my_bucket_object
@@ -31,7 +32,10 @@ for my_bucket_object in bucket.objects.all():
         
     dfs.append(df)
 
-    st.write(object_.key)
+    name = str(object_.key).split(",")[0]
+
+    names.append(name)
+    scores.append(score)
 
     st.table(df)
 
@@ -40,5 +44,10 @@ for my_bucket_object in bucket.objects.all():
     #df = pd.read_csv(response["Body"])
 
 
-#
+df = pd.DataFrame({
+    "Name" = name,
+    "Score" = score
+})
+
+st.table(df)
     
