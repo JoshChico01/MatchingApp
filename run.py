@@ -33,6 +33,8 @@ def done(chosen_images, images, name, placeholder):
     csv_buffer = StringIO()
     df_guesses.to_csv(csv_buffer, index = False)
 
+    
+
     s3.Object('photomatchingapp', f'{name}.csv').put(Body=csv_buffer.getvalue())
 
     placeholder.empty()
@@ -59,9 +61,14 @@ def getScore(guesses, images):
 def try_pass(password):
     if password == "baby":
         st.session_state.password = True
+    else:
+        st.session_state.incorrrect = True
 
 if "password" not in st.session_state:
     st.session_state.password = False
+    
+if "incorrect" not in st.sesion_state:
+    st.session_state.incorrrect = False
 
 if "done" not in st.session_state:
     st.session_state.done = False
@@ -124,6 +131,8 @@ with placeholder.container():
 
     if not st.session_state.password:
         st.header("Baby Photo Matcher!")
-        st.write("Enter the password to get starter")
+        st.write("Enter the password to get started")
         password = st.text_input(label = "Password:")
+        if st.session_state.incorrrect:
+            st.write("Incorrect password, try again")
         st.button("Go", on_click=try_pass, kwargs ={"password" : password})
