@@ -67,7 +67,7 @@ def try_pass(password):
 if "password" not in st.session_state:
     st.session_state.password = False
     
-if "incorrect" not in st.sesion_state:
+if "incorrect" not in st.session_state:
     st.session_state.incorrrect = False
 
 if "done" not in st.session_state:
