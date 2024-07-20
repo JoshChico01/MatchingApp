@@ -39,7 +39,7 @@ def done(chosen_images, images, name, placeholder):
 
     placeholder.empty()
 
-
+@st.cache_data
 def getImgs():
 
     images = ["./Images/" + img_string for img_string in os.listdir("./Images") ]
