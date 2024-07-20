@@ -88,7 +88,7 @@ with placeholder.container():
         st.header("Baby Photo Matching")
         st.write("Match the baby photo with the person!")
 
-        players = ["Sarah", "Shavani", "Yvonne", "Titia", "Pina", "Zoe", "Angela", "Amy I", "Tiff", "Courtney", "Megan", "Jess", "Renae", "Amie H", "Britt", "Jenny", "Gabs"]
+        players = ["Sarah", "Shavani", "Yvonne", "Titia", "Pina", "Zoe", "Angela", "Amy I", "Tiff", "Courtney", "Megan", "Jess", "Renae", "Amie H", "Britt", "Jenny", "Gabs", "Alex", "Josh", "John"]
 
         name = st.selectbox(label  = "Enter your name: ", options = players, key = "name" )
         #name = st.text_input(label = "Enter your name:")
@@ -120,7 +120,7 @@ with placeholder.container():
 
         bundle = st.session_state.bundle
 
-        messages = ["Hmmm.. good try..."] * 2 + ["You just guessed didn't you.."] * 2 + ["Well, you tried"] * 3+ ["Not a bad effort"] * 2 + ["Over 50%? That's a pass!"] * 3 + ["Good job!"] * 3 + ["Wow! So close to perfect!"] *2 + ["Perfect! Great job!"]
+        messages = ["Really.. you didn't even get Koda?"] + ["Hmmm.. good try..."] * 2 + ["You just guessed didn't you.."] * 2 + ["Well, you tried"] * 3+ ["Not a bad effort"] * 2 + ["Over 50%? That's a pass!"] * 3 + ["Good job!"] * 3 + ["Wow! So close to perfect!"] *2 + ["Perfect! Great job!"]
 
         if bundle:
             st.header(messages[bundle[0]])
