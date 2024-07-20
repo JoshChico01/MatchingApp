@@ -134,5 +134,5 @@ with placeholder.container():
         st.write("Enter the password to get started")
         password = st.text_input(label = "Password:")
         if st.session_state.incorrrect:
-            st.write("Incorrect password, try again")
+            st.write("Incorrect password, try again...")
         st.button("Go", on_click=try_pass, kwargs ={"password" : password})
